@@ -44,6 +44,10 @@ const RootLayout = ({ children }) => {
 
 const App = ({ children }) => (
     <html lang="en">
+    <head>
+        <link rel="icon" href="/faviconnew.ico"/>
+        <title>API.inc | Accueil</title>
+    </head>
     <body>
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
