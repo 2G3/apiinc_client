@@ -18,6 +18,7 @@ const RootLayout = ({ children }) => {
         {children}
         <Footer/>
         <BackToTopBtn/>
+        <Analytics/>
         </body>
         </html>
     );
