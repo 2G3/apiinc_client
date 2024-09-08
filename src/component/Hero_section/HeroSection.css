@@ -1,0 +1,17 @@
+
+
+.btn-contact-us {
+    position: relative;
+    padding-left: 40px; /* Add padding to make space for the line */
+}
+
+.btn-contact-us::before {
+    content: "";
+    width: 110px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    left: -40%;
+    top: 50%;
+    transform: translateY(-50%);
+}
