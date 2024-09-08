@@ -6,19 +6,19 @@ const Services = () => {
             subtitle: 'Planifiez',
             title: 'Votre Consultation',
             description: 'Prenez rendez-vous facilement',
-            icon: '📅'
+            icon: '📅' 
         },
         {
             subtitle: 'Obtenez',
             title: 'Des Conseils',
             description: 'Consultation gratuite',
-            icon: '💼'
+            icon: '💼' 
         },
         {
             subtitle: 'Rejoignez',
             title: 'Votre destination',
             description: 'Opportunités de carrière',
-            icon: '👥'
+            icon: '👥' 
         }
     ];
 

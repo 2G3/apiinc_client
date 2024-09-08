@@ -59,7 +59,7 @@ const AboutUs = () => {
                 <Image src="/signature2.png" alt=""
                        className="mt-4 md:mt-8 w-[150px] md:w-[300px] h-[50px] md:h-[100px] object-cover"
                        width={300}
-                       height={100}
+                          height={100}
                 />
             </motion.div>
         </motion.div>

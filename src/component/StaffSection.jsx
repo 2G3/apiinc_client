@@ -44,8 +44,8 @@ const StaffSection = () => {
                     {ourExperts.map((expert) => (
                         <div key={expert.id} className="flex flex-col items-center">
                             <img src={expert.image} alt={expert.name} className="w-full md:w-60 md:h-64 object-cover"
-                                 width={240}
-                                 height={240}
+                                width={240}
+                                height={240}
                             />
                             <h3 className="text-2xl text-[#222222] mt-4 playfair-display-p0">{expert.name}</h3>
                             <p className="text-[14.5px] text-[#656565] poppins-extralight-italic">{expert.position}</p>
@@ -58,3 +58,4 @@ const StaffSection = () => {
 };
 
 export default StaffSection;
+

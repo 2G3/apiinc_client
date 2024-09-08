@@ -1,6 +1,8 @@
 
 "use client";
 import React, { useState } from 'react';
+import axios from "axios";
+
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const SuscribeToNewsLetter = () => {
@@ -12,15 +14,19 @@ const SuscribeToNewsLetter = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch(`${apiUrl}/api/newsletter/subscribe`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email: email }), // S'assurer que le corps de la requête est bien au format JSON
-                credentials: 'include', // Inclure les informations d'authentification
-            });
 
+            const response = await axios.post(`${apiUrl}/api/newsletter/subscribe`,
+                { email: email },  // Les données du corps de la requête
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    // withCredentials: true  // Inclure les informations d'authentification si nécessaire
+                }
+            );
+
+
+            console.log(response)
             if (response.ok) {
                 setMessage('Abonnement réussi');
                 setIsSuccess(true);
@@ -75,4 +81,5 @@ const SuscribeToNewsLetter = () => {
         </div>
     );
 };
+
 export default SuscribeToNewsLetter;
