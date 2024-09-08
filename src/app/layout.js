@@ -4,15 +4,20 @@ import "./globals.css";
 import Header from "@/component/Header/Header";
 import Footer from "@/component/Footer";
 import BackToTopBtn from "@/component/buttons/BackToTopBtn";
+import { Analytics } from "@vercel/analytics/react"
 
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
+        <head>
+            <link rel="icon" href="/faviconnew.ico"/>
+            <title>API.inc | Accueil</title>
+        </head>
         <body>
-        <Header />
+        <Header/>
         {children}
-        <Footer />
-        <BackToTopBtn />
+        <Footer/>
+        <BackToTopBtn/>
         </body>
         </html>
     );
