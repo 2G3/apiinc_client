@@ -49,10 +49,11 @@ const AreaOfPractice = () => {
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
     };
 
-    
-    
-    
 
+
+    const handleClick = (slug) => {
+        router.push(`/services/${slug}`);
+    };
 
 
     return (
