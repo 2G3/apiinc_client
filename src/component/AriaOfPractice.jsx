@@ -52,7 +52,9 @@ const AreaOfPractice = () => {
 
 
 
-
+    const handleClick = (slug) => {
+        router.push(`/services/${slug}`);
+    };
 
 
     return (

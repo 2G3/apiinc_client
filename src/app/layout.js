@@ -8,11 +8,15 @@ import BackToTopBtn from "@/component/buttons/BackToTopBtn";
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
+        <head>
+            <link rel="icon" href="/faviconnew.ico"/>
+            <title>API.inc | Accueil</title>
+        </head>
         <body>
-        <Header />
+        <Header/>
         {children}
-        <Footer />
-        <BackToTopBtn />
+        <Footer/>
+        <BackToTopBtn/>
         </body>
         </html>
     );

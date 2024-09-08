@@ -91,7 +91,7 @@ const Page = ({ params }) => {
                     <div className="mt-10">
                         {/*<Link href="/user/signin">*/}
                         <span className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#C0B596] hover:bg-[#a89976] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C0B596]">
-                            Vous pourrez bientôt faire une demande sur ce service
+                            Vous pourrez bientôt faire une demande sur notre plateforme
                         </span>
                         {/*</Link>*/}
                     </div>
