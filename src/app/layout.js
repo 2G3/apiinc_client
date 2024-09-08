@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/component/Header/Header";
 import Footer from "@/component/Footer";
 import BackToTopBtn from "@/component/buttons/BackToTopBtn";
+import { Analytics } from "@vercel/analytics/react"
 
 const RootLayout = ({ children }) => {
     return (
