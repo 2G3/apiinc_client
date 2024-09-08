@@ -9,6 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "@/../redux/store";
 import { useTokenManager } from "@/lib/hooks/useTokenManager";
 import {useRouter} from "next/navigation";
+import { Analytics } from "@vercel/analytics/react"
 
 const RootLayout = ({ children }) => {
     const {setupUserActivityListener,handleUserActivity} = useTokenManager();
@@ -49,6 +50,7 @@ const App = ({ children }) => (
             <RootLayout>{children}</RootLayout>
         </PersistGate>
     </Provider>
+    <Analytics/>
     </body>
     </html>
 );
