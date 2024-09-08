@@ -7,6 +7,6 @@ export const client = {
     client_register_url: "/user/signup",
     client_forgot_password_url: "/user/signin/forgot-password",
     client_dashboard_url: "/dashboard",
-    client_user_home_url: "/user/mon-espace/johnDoe/123e4567-e89b-12d3-a456-426614174000",
+    client_user_home_url: "/user/my-space/home",
 
 }

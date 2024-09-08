@@ -75,4 +75,5 @@ const SuscribeToNewsLetter = () => {
         </div>
     );
 };
+
 export default SuscribeToNewsLetter;
