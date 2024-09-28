@@ -1,10 +1,8 @@
-// lib/axios.js
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import Cookies from 'js-cookie';
 import { client } from "@/constant/appURI";
 import tokens from "@/lib/tokens";
-
 
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -21,60 +19,19 @@ api.interceptors.response.use(
             console.log("have a new token here")
             sessionStorage.setItem('token', newToken);
         }
+        console.log(response)
         return response;
     },
     (error) => {
-        // Gestion centralisée des erreurs
-        return handleError(error);
+
+        // Vérifiez si c'est une erreur réseau
+        if (error.code && error.code.includes('ERR_NETWORK')) {
+            // Ajoutez un indicateur spécifique à l'erreur
+            error.isNetworkError = true;
+        }
+        // Rejetez l'erreur pour que le code appelant puisse la gérer
+        return Promise.reject(error);
     }
 );
-
-// Fonction de gestion des erreurs centralisée
-function handleError(error) {
-    if (error.code && error.code.includes('ERR_NETWORK')) {
-        handleNetworkError();
-    } else if (error.response) {
-        return handleServerError(error.response);
-    } else if (error.request) {
-        handleNoResponseError();
-    } else {
-        handleGenericError();
-    }
-
-    return Promise.reject(error);
-}
-
-// Gestion des erreurs réseau
-function handleNetworkError() {
-    const tempToken = uuidv4();
-    Cookies.set('tempToken', tempToken, { secure: true, sameSite: 'Strict' });
-    window.location.href = `/${tempToken}`;
-}
-
-// Gestion des erreurs serveur
-function handleServerError(response) {
-    console.log(response)
-    if (response.status === 401) {
-        sessionStorage.removeItem('token');
-        window.location.href = client.client_login_url; // Redirige vers la page de connexion
-    } else if (response.status === 500) {
-        // alert("Une erreur s'est produite. Veuillez réessayer plus tard !");
-        return null;
-    } else {
-        alert(response.data.message || response.statusText);
-    }
-
-    return response; // Important pour gérer correctement la suite de la promesse
-}
-
-// Gestion des erreurs sans réponse du serveur
-function handleNoResponseError() {
-    alert('Pas de réponse du serveur. Veuillez réessayer plus tard.');
-}
-
-// Gestion des erreurs génériques
-function handleGenericError() {
-    alert('Une erreur est survenue. Veuillez réessayer.');
-}
 
 export default api;

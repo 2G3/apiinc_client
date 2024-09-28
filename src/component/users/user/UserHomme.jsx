@@ -50,7 +50,8 @@ const UserHomme = () => {
                                 consultation de dossier</h2>
                             <p className="mt-4 text-gray-600">Informations et formulaires relatifs au parrainage.</p>
                             <Link
-                                href="/user/mon-espace/johnDoe/123e4567-e89b-12d3-a456-426614174000/demandes/commencer-une-demande">
+                                //TODO: make uuid generate automatically
+                                href={`/user/my-space/${user.firstName+user.lastName}/123e4567-e89b-12d3-a456-426614174000/demandes/commencer-une-demande`}>
                                 <button
                                     className="mt-6 px-4 py-2 bg-[#C0B596] text-white rounded-md hover:bg-[#a89976] transition-colors duration-300">
                                     Remplir le formulaire

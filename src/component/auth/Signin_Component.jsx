@@ -11,9 +11,8 @@ import {client} from "@/constant/appURI"
 export default function SigninComponent() {
     const router = useRouter();
     const dispatch = useDispatch();
-    const loading = useSelector((state) => state.auth.loading);  // Récupère l'état de chargement depuis le store
-    const error = useSelector((state) => state.auth.error);  // Récupère les erreurs depuis le store
-    const [credentials, setCredentials] = useState({ name: "ibo.barrd@hotmail.com", password: "securepassword123" });  // Stocke temporairement les informations d'identification
+    const {loading, error} = useSelector((state) => state.auth);  // Récupère l'état de chargement depuis le store
+    const [credentials, setCredentials] = useState({ name: "barryloverboy@hotmail.com", password: "securepassword123" });  // Stocke temporairement les informations d'identification
 
 
     // Mettre à jour l'erreur en utilisant dispatch
@@ -48,7 +47,8 @@ export default function SigninComponent() {
                 router.push(client.client_user_home_url); // Redirige vers la page d'accueil
             }
         } catch (err) {
-            handleError(err.message || "Nom d'utilisateur ou mot de passe incorrect !");
+
+            handleError(err);
         }
     };
 
